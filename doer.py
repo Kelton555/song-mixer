@@ -121,8 +121,6 @@ def handleSong(song, playingStack, cutin=0):
             else: # otherwise, start from last dropoff point
                 if song['timestamps'][lastCutaway]['end'] <= cutaway['start']:
                     audio = audio + songAudio[song['timestamps'][lastCutaway]['end']:cutaway['start']]
-                else:
-                    print('AHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH FIRE FIRE FIRE FIRE FIRE I REPEAT FIRE FIRE FIRE FIRE FIRE BAD THINGS HAVE HAPPENED SOMETHINGS ON FIRE AHHHHHHHHHHHHHHHHHHHHHHHHHHH')
 
             if 'cutin' in cutaway:
                 handleSong(cutaway['embed'], playingStack, cutaway['cutin'])
