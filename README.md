@@ -10,3 +10,5 @@ If you use this to make a thing, it'd be nice if you credited back to this GitHu
 Highly inspired by [@havenagave](https://www.youtube.com/@havenagave) ; [video](https://youtu.be/qLZPSVDUKFQ)
 
 Find video timestamps in [timestamps.md](timestamps.md)
+
+A word of warning if you choose to run the exact same data I used for creating the video, you should have at least 250+GB of space available to temporarily hold everything while you're manually converting and merging it. By the end, the final file was around 100GB, but intermediate files necessitate around 150GB more space.
