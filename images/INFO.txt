@@ -1,0 +1,1 @@
+this is the folder that auto-generated images for the video will be placed in when logimagegenerator.py is run
