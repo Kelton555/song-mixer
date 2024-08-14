@@ -11,4 +11,4 @@ Highly inspired by [@havenagave](https://www.youtube.com/@havenagave) ; [video](
 
 Find video timestamps in [timestamps.md](timestamps.md)
 
-A word of warning if you choose to run the exact same data I used for creating the video, you should have at least 250+GB of space available to temporarily hold everything while you're manually converting and merging it. By the end, the final file was around 100GB, but intermediate files necessitate around 150GB more space.
+A word of warning if you choose to run the exact same data I used for creating the video, you should have at least 200GB of space available to temporarily hold everything while you're manually converting and merging it. By the end, the final file was around 70GB, but intermediate files necessitate significantly more than that, especially if you didn't delete them between each step.
