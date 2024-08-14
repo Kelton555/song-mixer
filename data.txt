@@ -1,0 +1,381 @@
+# This is a data file for use with my python script to interweave songs/audioclips/whatever you repurpose this thing to do.
+# You can find the full thing on github here: XYZ
+# This will serve as the tutorial file rather than making an independent README to refer back to.
+#
+# Lines can be commented out by either putting nothing on them or starting them with any of the following characters:
+# 					# * / \
+# With multiple comment declarations to choose from, it might be worth creating a scheme to separate different types of comments by their declaration. Or just type a comments purpose out in words before the comment, whatever works for you.
+#
+# Lines will also be interpreted as comments if they start with a Space or a Tab.
+#
+# You can use a dash (-) to make the program print a line to console as it passes it in parsing, this can be useful as a list of 'TODO's when you outline cuts before timing them or just for other reminders for yourself at runtime.
+# 
+# Each song/audioclip/etc starts with a single line that declares its internal name. The line must start with a '[' and end with a ']', and the internal name will be the string contained within the square brackets.
+# Do not name a song with a ':' in the name, that will go very poorly. ':'s are used to separate arguments on the same line internally, so do not use them for anything other than separating arguments or you will not have a fun time.
+#
+# The next non-comment line after the internal name declaration is the filepath and filetype, separated by a ':'. For example:
+# 'audios/1.m4a:m4a' means the file '1.m4a' in the folder named 'audios' within the relative directory. After the colon, the filetype is listed, in this case 'm4a'.
+#
+# All other non-comment lines after one internal name declaration and before the next will try to be interpreted as cutaway points in the following format (with square brackets being optional):
+# msToCutFrom:thingToCutTo:msToCutBackAt[:msToCutIntoThing]
+#
+# So, for example, we have 2 internal things, 'Song1' and 'Song2'. We want to cut to Song2 from Song1 3.5 seconds in, and then cut back to 4.5 seconds into Song1 when Song2 finishes playing. To do that, we would do the following
+# Please note that all times will be in ms, make sure to convert to ms.
+# Times are also relative to the full length of the song in which they refer to. 3500 ms into the same song will always be the same place no matter what has happened before hand.
+#
+##
+## [Song1]
+## songs/song1.mp3:mp3
+## 3500:Song2:4500
+##
+## [Song2]
+## songs/song2.wav:wav
+##
+#
+# If you wanted to cut midway into Song2 at the cutaway, you could add an additional argument to the cutaway in Song1 so that it read
+## 3500:Song2:4500:5500
+# This means to cut 5500 ms (5.5 seconds) into Song2 when cutting away from Song1. The only thing this changes is that Song2 will start playing from 5.5 seconds in.
+#
+# Currently, there is only support for trimming off time from the start of a song that you cut to. Every song will have to play out from the time at which it was started until the end of the audio file.
+# Currently, it will play every included audio clip in the order it was declared internally.
+# Recursion is automatically avoided by preventing any song from appearing in the 'currently playing tree' twice. It *should* always terminate (unless you did something weird like making the end of a cutaway before the start of it but don't do something like that that sounds like a bad idea)
+#
+# Any questions, issues, etc? Please submit issues/pull requests/etc on the GitHub page linked at the top.
+#
+# Kelton
+#
+
+#Check1 #AutoCheck
+[Alexander Hamilton]
+audios/1.m4a:m4a
+49253:Hurricane:50057
+
+#Check1 #AutoCheck
+[Aaron Burr, Sir]
+audios/2.m4a:m4a
+19271:Alexander Hamilton:20532
+
+#Check1 #AutoCheck
+[My Shot]
+audios/3.m4a:m4a
+
+#Check1 #AutoCheck
+[The Story of Tonight]
+audios/4.m4a:m4a
+14465:The Story of Tonight (Reprise):16317
+42192:The Story of Tonight (Reprise):44437
+45200:The Story of Tonight (Reprise):47075
+66053:The Story of Tonight (Reprise):68090
+71862:The Story of Tonight (Reprise):73853
+77718:The Story of Tonight (Reprise):79685
+83735:The Story of Tonight (Reprise):86050
+86744:The Story of Tonight (Reprise):91882
+
+#Check1 #AutoCheck
+[The Schuyler Sisters]
+audios/5.m4a:m4a
+
+#Check1 #AutoCheck
+[Farmer Refuted]
+audios/6.m4a:m4a
+
+#Check1 #AutoCheck
+[You'll Be Back]
+audios/7.m4a:m4a
+
+#Check1 #AutoCheck
+[Right Hand Man]
+audios/8.m4a:m4a
+179378:Aaron Burr, Sir:180835
+265213:My Shot:266265
+268207:My Shot:269381
+274276:My Shot:274924
+
+#Check1 #AutoCheck
+[A Winter's Ball]
+audios/9.m4a:m4a
+52982:The Schuyler Sisters:54323
+
+#Check1 #AutoCheck
+[Helpless]
+audios/10.m4a:m4a
+
+#Check1 #AutoCheck
+[Satisfied]
+audios/11.m4a:m4a
+*Supposedly, the rewind section has 'Helpless' twice, though I can only definitively hear it once
+50446:Helpless:51616
+/ Helpless|AutoDetected
+118284:Alexander Hamilton:120365
+161235:Helpless:162488
+165159:Helpless:166401
+169144:Helpless:170542
+
+#Check1 #AutoCheck
+[The Story of Tonight (Reprise)]
+audios/12.m4a:m4a
+39336:The Story of Tonight:41362
+45153:Aaron Burr, Sir:46349
+
+#Check1 #AutoCheck
+[Wait for It]
+audios/13.m4a:m4a
+
+#Check1 #AutoCheck
+[Stay Alive]
+audios/14.m4a:m4a
+*Only cutting out 'Alive' to cut into reprise and join the phrase
+5704:Stay Alive (Reprise):10387:5838
+11688:Stay Alive (Reprise):17212:5838
+60021:Stay Alive (Reprise):60347:5838
+89742:Stay Alive (Reprise):90162:5838
+
+#Check1 #AutoCheck
+[Ten Duel Commandments]
+audios/15.m4a:m4a
+78224:Aaron Burr, Sir:79552
+
+#Check1 #AutoCheck
+[Meet Me Inside]
+audios/16.m4a:m4a
+6419:Satisfied:7114
+
+#Check1 #AutoCheck
+[That Would Be Enough]
+audios/17.m4a:m4a
+*Cut out 'Alive' to connect with start of Stay Alive
+74948:Stay Alive:75913:5704
+
+#Check2 #AutoCheck
+[Guns and Ships]
+audios/18.m4a:m4a
+*Fast part
+37022:Burn:37127
+53208:Yorktown:53927
+72254:Right Hand Man:72880
+73999:Right Hand Man:74653
+75712:Right Hand Man:76312
+79214:Right Hand Man:80102
+/ Right Hand Man|AutoDetected
+/ Right Hand Man|AutoDetected
+80172:Alexander Hamilton:81873
+94429:Alexander Hamilton:96355
+
+#Check1 #AutoCheck
+[History Has Its Eyes on You]
+audios/19.m4a:m4a
+60683:Who Lives, Who Dies, Who Tells Your Story:65206
+
+#Check2 #AutoCheck
+[Yorktown]
+audios/20.m4a:m4a
+32787:My Shot:33782
+35236:My Shot:36105
+40092:My Shot:41055
+42562:My Shot:43567
+105720:We Know:106232
+
+#Check1 #AutoCheck
+[What Comes Next?]
+audios/21.m4a:m4a
+
+#Check1 #AutoCheck
+[Dear Theodosia]
+audios/22.m4a:m4a
+61665:Blow Us All Away:63792
+70651:Blow Us All Away:72143
+153622:Blow Us All Away:155559
+163116:Blow Us All Away:164767
+
+#Check2 #AutoCheck
+[Non-Stop]
+audios/23.m4a:m4a
+13768:Alexander Hamilton:14932
+126870:Aaron Burr, Sir:128133
+192009:Wait for It:192840
+192882:Wait for It:193331
+*Cut on 'Alive' to connect
+239498:Stay Alive:240288:5704
+240337:That Would Be Enough:241310
+*Cutting out hamilton's 'treasury or state' comment fully rather than in half
+314057:Right Hand Man:315852
+*Only cutting out the main part of the word, not the sustained 'ss'
+337468:Helpless:338483
+*Eliza is singing 'What would be enough', not 'That would be enough' according to azlyrics and my ears agree
+343887:Satisfied:345433
+346564:Satisfied:347844
+347869:Satisfied:349016
+349124:Satisfied:349898
+*Satisfied is said 3 more times in the lyrics, but in harmony with the main track, therefore each double usage of satisfied will only trigger one song
+349900:History Has Its Eyes on You:355094
+357023:Satisfied:358270
+358295:Satisfied:359592
+359600:Satisfied:360797
+364879:History Has Its Eyes on You:368571
+369710:My Shot:370724
+372312:My Shot:373351
+*Alexander Hamilton is mentioned twice in lyrics, but they overlap, so you only get one alexander hamilton
+373975:Alexander Hamilton:375230
+380193:My Shot:381091
+
+#Check1 #AutoCheck
+[What'd I Miss]
+audios/24.m4a:m4a
+214611:Alexander Hamilton:216143
+
+#Check1 #AutoCheck
+[Cabinet Battle #1]
+audios/25.m4a:m4a
+116285:We Know:116724
+
+#Check1 #AutoCheck
+[Take a Break]
+audios/26.m4a:m4a
+194113:The Schuyler Sisters:196807
+
+#Check1 #AutoCheck
+[Say No to This]
+audios/27.m4a:m4a
+89972:Helpless:91506
+*Harmony; no double song
+173459:Helpless:174023
+190854:Helpless:191575
+*Cut somewhat short to preserve more of hamilton's lines
+191742:Helpless:192566
+
+#Check1 #AutoCheck
+[The Room Where It Happens]
+audios/28.m4a:m4a
+198633:Alexander Hamilton:200061
+204152:Alexander Hamilton:205387
+209615:Alexander Hamilton:210933
+230083:Wait for It:230886
+230913:Wait for It:231627
+
+#Check1 #AutoCheck
+[Schuyler Defeated]
+audios/29.m4a:m4a
+
+#Check1 #AutoCheck
+[Cabinet Battle #2]
+audios/30.m4a:m4a
+41445:Alexander Hamilton:42515 
+
+#Check1 #AutoCheck
+[Washington on Your Side]
+audios/31.m4a:m4a
+
+#Check1 #AutoCheck
+[One Last Time]
+audios/32.m4a:m4a
+57638:Take a Break:58508
+266251:History Has Its Eyes on You:270138
+
+#Check1 #AutoCheck
+[I Know Him]
+audios/33.m4a:m4a
+
+#Check1 #AutoCheck
+[The Adams Administration]
+audios/34.m4a:m4a
+53585:We Know:54144
+
+#Check1 #AutoCheck
+[We Know]
+audios/35.m4a:m4a
+/ The Room Where It Happen(ed)|Not Doing
+
+#Check1 #AutoCheck
+[Hurricane]
+audios/36.m4a:m4a
+116328:Wait for It:117108
+117110:Wait for It:117765
+117802:Wait for It:118434
+119858:Wait for It:120487
+120558:Wait for It:121202
+*half cut to not cut a hamilline
+121227:Wait for It:121425
+*only like the second half of this one ig
+125600:Wait for It:126049
+*and the first half of this one ig
+126051:Wait for It:126278
+*"History-"
+126433:History Has Its Eyes on You:127068
+*and then use this one to cut to the end of history has its eyes on you
+*oops i mean to the start of the next hamiline
+127070:Wait for It:128130
+*pause for a bit
+139071:Wait for It:139805
+139826:Wait for It:140529
+140554:Wait for It:141239
+142313:The Reynolds Pamphlet:143351
+
+#Check1 #AutoCheck
+[The Reynolds Pamphlet]
+audios/37.m4a:m4a
+6652:Alexander Hamilton:8759
+85349:Satisfied:86192
+*cut short to maintain lyrics upon return
+87048:Satisfied:88004
+
+#Check1 #AutoCheck
+[Burn]
+audios/38.m4a:m4a
+
+#Check1 #AutoCheck
+[Blow Us All Away]
+audios/39.m4a:m4a
+
+#Check1 #AutoCheck
+[Stay Alive (Reprise)]
+audios/40.m4a:m4a
+*Cutting between stay and alive to connect
+5738:Stay Alive:10821:5704
+*Quick cut leaving most of the word to keep hamilton line
+11918:Stay Alive:12245:5704
+*dodging in and out of lines here
+18233:Stay Alive:18907:5704
+59687:Stay Alive:62498:5704
+*little baby cut
+66060:Stay Alive:66175:5704
+
+#Check1 #AutoCheck
+[It's Quiet Uptown]
+audios/41.m4a:m4a
+116923:That Would Be Enough:118211
+131620:That Would Be Enough:133002
+161000:That Would Be Enough:162757
+
+#Check1 #AutoCheck
+[The Election of 1800]
+audios/42.m4a:m4a
+15462:Alexander Hamilton:16920
+99076:It's Quiet Uptown:100287
+106119:It's Quiet Uptown:107772
+*Harmony; no double
+109301:We Know:109792
+*There's another 'We Know' in the background according to azlyrics, but I can't hear it at all so I'm not doing it
+/ We Know|AutoDetected
+122720:Aaron Burr, Sir:124219
+
+#Check1 #AutoCheck
+[Your Obedient Servant]
+audios/43.m4a:m4a
+19419:The Room Where It Happens:21076
+21109:The Room Where It Happens:22928
+22930:The Room Where It Happens:24676
+26282:The Room Where It Happens:28399
+
+#Check1 #AutoCheck
+[Best of Wives and Best of Women]
+audios/44.m4a:m4a
+25546:That Would Be Enough:27260
+
+#Check1 #AutoCheck
+[The World Was Wide Enough]
+audios/45.m4a:m4a
+125956:My Shot:126881
+
+#Check1 #AutoCheck
+[Who Lives, Who Dies, Who Tells Your Story]
+audios/46.m4a:m4a
