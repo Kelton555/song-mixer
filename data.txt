@@ -1,5 +1,5 @@
 # This is a data file for use with my python script to interweave songs/audioclips/whatever you repurpose this thing to do.
-# You can find the full thing on github here: XYZ
+# You can find the full thing on github here: https://github.com/Kelton555/song-mixer/
 # This will serve as the tutorial file rather than making an independent README to refer back to.
 #
 # Lines can be commented out by either putting nothing on them or starting them with any of the following characters:
