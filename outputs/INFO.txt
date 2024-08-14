@@ -1,0 +1,1 @@
+this is the folder that doer.py will put the fragments of audio into (audio is divided every 5 million milliseconds by default to limit memory burder)
