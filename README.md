@@ -13,3 +13,5 @@ Highly inspired by [@havenagave](https://www.youtube.com/@havenagave) ; [video](
 Find video timestamps in [timestamps.md](timestamps.md)
 
 A word of warning if you choose to run the exact same data I used for creating the video, you should have at least 200GB of space available to temporarily hold everything while you're manually converting and merging it. The final file, after many hours of ffmpeg merging and re-encoding, was only 7GB. The 2 files combined to make this 7GB file were 61GB (the Python generated video that just tacks frames manually on one at a time) and 5GB (the remuxed and combined .wav files into a .mp3 of the entire length) respectively. The temporary files used to create the 5GB audio file were likely at least 60GB, but deleted as of time of writing so unconfirmable.
+
+and then i had to split it into segments of less than 12 hours each because youtube is not a fan of people having fun
