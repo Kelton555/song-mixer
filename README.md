@@ -1,7 +1,7 @@
 # Song Mixer
 mix songs
 
-Timings included in the data.txt file are based on the audio taken directly from [this](https://youtube.com/playlist?list=OLAK5uy_nRAj82ywkJ_YHiRh-sXKAbpiCiUfSx0-k) playlist.
+Timings included in the data.txt file are based on the audio taken directly from [this](https://youtube.com/playlist?list=OLAK5uy_nRAj82ywkJ_YHiRh-sXKAbpiCiUfSx0-k) playlist.<br>
 You'll also find an explanation of how the data.txt file format works as comments at the top of the data.txt file. If this is insufficient, you will either have to refer to the code to figure out what exactly is happening behind the scenes, or open an issue so that someone else can figure out what on earth my sleep deprived code does and for what purpose.
 
 This is not made user friendly, a working experience with either Python or another programming language is highly recommended for getting it to work properly. Any questions or issues can be opened as issues, any contributions can be opened as pull requests.
