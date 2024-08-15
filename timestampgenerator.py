@@ -18,6 +18,8 @@ for line in f:
         if time > x:
             time = time - x
             i = i + 1
+        else:
+            break
 
     o.write('[' + str(time) + 's](' + links[i] + '?t=' + str(time) + '): ' + path + '<br>\n')
 
